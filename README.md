@@ -42,7 +42,7 @@ Field
 }
 ```
 
-### Read image with imgIX
+## Read image with imgIX
 
 Copy last response and use as image param
 

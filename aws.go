@@ -75,12 +75,12 @@ func (a *Amazon) UploadFileS3(file multipart.File, fileHeader *multipart.FileHea
 	file.Read(buffer)
 
 	// create a unique file name for the file
-	tempFileName := bson.NewObjectId().Hex() + filepath.Ext(fileHeader.Filename)
+	tempFileName := "picture-" + bson.NewObjectId().Hex() + filepath.Ext(fileHeader.Filename)
 
 	_, err = s3.New(s).PutObject(&s3.PutObjectInput{
 		Bucket:               aws.String(a.Bucket),
 		Key:                  aws.String(tempFileName),
-		ACL:                  aws.String("private"), // could be private if you want it to be access by only authorized users
+		ACL:                  aws.String("public-read"), // could be private if you want it to be access by only authorized users
 		Body:                 bytes.NewReader(buffer),
 		ContentLength:        aws.Int64(int64(size)),
 		ContentType:          aws.String(http.DetectContentType(buffer)),

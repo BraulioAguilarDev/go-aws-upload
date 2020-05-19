@@ -19,7 +19,7 @@ var imgIXClient imgix.Client
 
 func main() {
 
-	imgIXClient = imgix.NewClient("serviceprofile.imgix.net")
+	imgIXClient = imgix.NewClient(IMGIX_SOURCE)
 
 	r := mux.NewRouter()
 	r.HandleFunc("/api/profiles", uploadHandler).Methods("POST")

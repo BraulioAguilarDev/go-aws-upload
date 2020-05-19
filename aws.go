@@ -22,6 +22,7 @@ var (
 	AWS_ACCESS_KEY_ID     string
 	AWS_SECRET_ACCESS_KEY string
 	PORT                  string
+	IMGIX_SOURCE          string
 )
 
 func init() {
@@ -34,6 +35,7 @@ func init() {
 	AWS_S3_BUCKET = os.Getenv("AWS_S3_BUCKET")
 	AWS_ACCESS_KEY_ID = os.Getenv("AWS_ACCESS_KEY_ID")
 	AWS_SECRET_ACCESS_KEY = os.Getenv("AWS_SECRET_ACCESS_KEY")
+	IMGIX_SOURCE = os.Getenv("IMGIX_SOURCE")
 	PORT = os.Getenv("PORT")
 }
 
